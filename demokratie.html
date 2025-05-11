@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidebar Navigation</title>
+  <style>
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Calibri", sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    .content {
+      margin-left: 50px;
+      transition: margin-left 0.3s;
+    }
+
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      margin-top: 30px;
+      margin-left: 30px;
+      cursor: pointer;
+      background-color: #bbbbbb;
+      color: white;
+      width: 0px;
+      height: 0px;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      overflow-x: hidden;
+      transition: 1s;
+      padding-top: 60px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    .sidebar a {
+      padding: 15px 15px 15px 25px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #f1f1f1;
+      display: block;
+      transition: 1s;
+      white-space: nowrap;
+    }
+
+    .sidebar a:hover {
+      background-color: #bbbbbb;
+    }
+
+    .sidebar .closebtn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .category-icon {
+      margin-right: 10px;
+    }
+
+    .h1 {
+      text-align: center;
+      font-size: 80px;
+    }
+
+    .headbild {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      transition: 1s;
+    }
+
+    .leftabschnitt {
+      text-align: center;
+      display: block;
+      margin-top: 30px;
+      margin-left: 100px;
+      word-wrap: break-word;
+      width: 350px;
+      background-color: red;
+      border: 20px;
+      border-radius: 5px;
+    }
+
+    .rightabschnitt {
+      text-align: center;
+      display: block;
+      margin-top: 30px;
+      margin-left: auto;
+      margin-right: 100px;
+      word-wrap: break-word;
+      width: 350px;
+      background-color: red;
+      border: 20px;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+    <div class="menu-icon">
+        <img src="https://img.icons8.com/ios-filled/50/000000/menu--v1.png" onclick="toggleMenu()" alt="Menü öffnen" />
+      </div>
+      
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">×</a>
+    <a href="#"><span class="category-option"></span>Fitness</a>
+    <a href="#"><span class="category-option"></span>Rezept: Rat in Datteln</a>
+    <a href="#"><span class="category-option"></span>10 Tipps gegen Müdigkeit</a>
+    <a href="#"><span class="category-option"></span>Wie bleibt man motiviert?</a>
+    <a href="#"><span class="category-option"></span>Kategorie 5</a>
+    <a href="#"><span class="category-option"></span>Kategorie 6</a>
+    <a href="#"><span class="category-option"></span>Kategorie 7</a>
+    <a href="#"><span class="category-option"></span>Kategorie 8</a>
+  </div>
+
+  <div id="main" class="content">
+    <div class="headline">
+      <h1 class="h1">DEMOKRATIE</h1>
+      <p class="leftabschnitt">Wie du deine Gesundheit mit unseren einfachen Tipps verbessern kannst!</p>
+      <p class="rightabschnitt">Diese Tipps gelten für alle: egal ob du viel Zeit hast oder wenig!</p>
+      <p class="leftabschnitt">Jeder Mensch darf offen seine Meinung sagen dürfen!</p>
+      <p class="rightabschnitt">Es gibt keine Regeln die für alle gelten!</p>
+      <p class="leftabschnitt">Schuldenideen werden gemacht und dürfen nicht berücksichtigt werden!</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById("mySidebar");
+      const main = document.getElementById("main");
+      const currentWidth = sidebar.style.width;
+
+      if (currentWidth === "250px") {
+        sidebar.style.width = "0";
+        main.style.marginLeft = "50px";
+      } else {
+        sidebar.style.width = "250px";
+        main.style.marginLeft = "250px";
+      }
+    }
+
+    function closeMenu() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft = "50px";
+    }
+  </script>
+</body>
+</html>
